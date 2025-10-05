@@ -253,7 +253,6 @@ export default function Settings() {
           </Text>
         </View>
 
-        {/* More spacing at the bottom */}
         <View className="h-10 mb-10" />
       </ScrollView>
     </View>

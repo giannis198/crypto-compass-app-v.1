@@ -12,7 +12,7 @@ interface CryptoState {
   fetchCoins: () => Promise<void>;
   fetchMoreCoins: () => Promise<void>;
   loadCoinsFromStorage: () => Promise<void>;
-  refreshData: () => Promise<void>; // ✅ Changed from refreshCoins to refreshData
+  refreshData: () => Promise<void>; 
 }
 
 export const useCryptoStore = create<CryptoState>((set, get) => ({
@@ -35,7 +35,7 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
         set({ hasMore: false });
       }
 
-      // Remove duplicates by coin ID
+  
       const currentCoins = get().coins;
       const uniqueNewCoins = newCoins.filter(
         (newCoin: Coin) => !currentCoins.some((coin) => coin.id === newCoin.id)
@@ -66,7 +66,6 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
     try {
       const storedCoins = await AsyncStorage.getItem("coins");
       if (storedCoins) {
-        // Ensure no duplicates when loading from storage
         const parsedCoins = JSON.parse(storedCoins);
         const uniqueCoins = parsedCoins.filter(
           (coin: Coin, index: number, array: Coin[]) =>
@@ -82,10 +81,10 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
     }
   },
   refreshData: async () => {
-    // ✅ Renamed to avoid conflict
+  
     set({ refreshing: true, page: 1, hasMore: true });
     try {
-      // Clear current coins and fetch fresh data from page 1
+      
       const response = await fetch(
         "https://api.coinpaprika.com/v1/tickers?page=1"
       );
@@ -95,7 +94,7 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
       set({
         coins: newCoins,
         loading: false,
-        page: 2, // Start from page 2 for next fetchMore
+        page: 2, 
         refreshing: false,
       });
     } catch (e) {

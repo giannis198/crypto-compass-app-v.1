@@ -34,7 +34,7 @@ export function AnimatedCard({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [delay, fadeAnim, slideAnim]); // Added missing dependencies
+  }, [delay, fadeAnim, slideAnim]); 
 
   return (
     <Animated.View

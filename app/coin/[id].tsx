@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Animated, View } from "react-native";
 
 import Loading from "@/components/Loading";
-import { Text } from "@/components/ui/text"; // Add this import
+import { Text } from "@/components/ui/text";
 import { useAppTheme } from "@/hooks/use-app-theme";
 import { Coin, CoinDetailParams } from "@/types/crypto";
 import {
@@ -15,6 +15,7 @@ import {
   PriceCard,
   SupplyInfoCard,
 } from "../../components/coin-detail-screen";
+import { ThemeLoading } from "../../components/ThemeLoading";
 
 export default function CoinDetailScreen() {
   const { isDark } = useAppTheme();
@@ -67,6 +68,10 @@ export default function CoinDetailScreen() {
 
   if (loading) {
     return <Loading />;
+  }
+
+  if (loading) {
+    return <ThemeLoading message="Loading coin data..." />;
   }
 
   if (error) {

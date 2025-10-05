@@ -4,18 +4,16 @@ import { Dimensions, Image, ScrollView, Text, View } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-export default function Compass() {
+export default function Discover() {
   const { isDark } = useAppTheme();
 
   return (
     <View className={isDark ? "flex-1 bg-gray-900" : "flex-1 bg-gray-50"}>
-
       <TabsHeader
         title="Discover"
         subtitle="Explore new cryptocurrencies and market insights"
       />
 
-   
       <ScrollView
         className="flex-1"
         showsVerticalScrollIndicator={true}
@@ -58,7 +56,6 @@ export default function Compass() {
             and market insights all in one place.
           </Text>
 
-  
           <View
             className={`
             mt-8 px-4 py-3 rounded-lg border
@@ -79,7 +76,6 @@ export default function Compass() {
             </Text>
           </View>
 
-   
           <View className="mt-12 w-full">
             <Text
               className={`
@@ -127,7 +123,6 @@ export default function Compass() {
             </View>
           </View>
 
-    
           <View
             className={`
             mt-8 p-6 rounded-xl border w-full
@@ -158,7 +153,6 @@ export default function Compass() {
             </Text>
           </View>
 
-        
           <View className="h-20" />
         </View>
       </ScrollView>

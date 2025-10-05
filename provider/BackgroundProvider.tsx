@@ -16,7 +16,7 @@ export function BackgroundProvider({
         flex: 1,
         backgroundColor,
         paddingTop: insets.top,
-        paddingBottom: insets.bottom, // Include bottom padding
+        paddingBottom: insets.bottom,
         paddingLeft: insets.left,
         paddingRight: insets.right,
       }}

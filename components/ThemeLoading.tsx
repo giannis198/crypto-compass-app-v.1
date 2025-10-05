@@ -1,33 +1,33 @@
-import { View, ActivityIndicator } from "react-native";
-import { useColorScheme } from "@/hooks/use-color-scheme";
+import { ActivityIndicator, View } from "react-native";
 import { Text } from "./ui/text";
+import { useAppTheme } from "../hooks/use-app-theme";
 
-export function ThemeLoading() {
-  const colorScheme = useColorScheme();
-  const isDark = colorScheme === "dark";
+interface ThemeLoadingProps {
+  message?: string;
+  size?: "small" | "large";
+  fullScreen?: boolean;
+}
 
-  const backgroundColor = isDark ? "#111827" : "#F9FAFB";
-  const textColor = isDark ? "#F3F4F6" : "#1F2937";
-  const primaryColor = isDark ? "#818CF8" : "#4F46E5";
+export function ThemeLoading({
+  message = "Loading...",
+  size = "large",
+  fullScreen = true,
+}: ThemeLoadingProps) {
+  const { isDark } = useAppTheme();
 
   return (
     <View
-      style={{
-        flex: 1,
-        backgroundColor,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className={`flex-1 justify-center items-center ${
+        isDark ? "bg-gray-900" : "bg-gray-50"
+      }`}
     >
-      <ActivityIndicator size="large" color={primaryColor} />
+      <ActivityIndicator size={size} color={isDark ? "#818CF8" : "#4F46E5"} />
       <Text
-        style={{
-          color: textColor,
-          marginTop: 16,
-          fontSize: 16,
-        }}
+        className={`mt-4 text-base ${
+          isDark ? "text-gray-100" : "text-gray-900"
+        }`}
       >
-        Loading...
+        {message}
       </Text>
     </View>
   );

@@ -37,10 +37,6 @@ export default function TabLayout() {
             height: tabBarHeight,
             paddingBottom: isMobile ? 12 : 0,
             paddingTop: isMobile ? 8 : 0,
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
           },
           tabBarLabelStyle: {
             fontSize: labelFontSize,
@@ -98,7 +94,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="compass"
+          name="discover"
           options={{
             title: "Discover",
             tabBarIcon: ({ color, size, focused }) => (

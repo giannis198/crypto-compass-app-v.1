@@ -5,12 +5,10 @@ import { useAppTheme } from "@/hooks/use-app-theme";
 import { Coin } from "@/types/crypto";
 import { Table } from "../table/Table";
 
-// ✅ Mock useAppTheme
 jest.mock("@/hooks/use-app-theme", () => ({
   useAppTheme: jest.fn(),
 }));
 
-// ✅ Mock child components
 jest.mock("@/components/table/TableHeader", () => {
   const React = jest.requireActual("react");
   const RN = jest.requireActual("react-native");
@@ -53,7 +51,6 @@ jest.mock("../EmptyState", () => {
   };
 });
 
-// ✅ Helper: minimal valid Coin object
 const createCoin = (overrides: Partial<Coin>): Coin => ({
   id: "1",
   name: "Bitcoin",
@@ -89,7 +86,6 @@ const createCoin = (overrides: Partial<Coin>): Coin => ({
   ...overrides,
 });
 
-// ✅ Mock data
 const mockCoins: Coin[] = [
   createCoin({ id: "1", name: "Bitcoin", symbol: "BTC", rank: 1 }),
   createCoin({
@@ -165,7 +161,6 @@ describe("Table Component", () => {
   it("calls refreshData when pulled to refresh", () => {
     const mockRefreshData = jest.fn();
 
-    // Render table
     render(
       <Table
         data={mockCoins}
@@ -176,15 +171,12 @@ describe("Table Component", () => {
       />
     );
 
-    // Manually trigger the onRefresh callback from RefreshControl
-    // The easiest way: mock RefreshControl globally to expose the prop
     const { RefreshControl } = jest.requireActual("react-native");
     const refreshInstance = new RefreshControl({
       refreshing: false,
       onRefresh: mockRefreshData,
     });
-    refreshInstance.props?.onRefresh?.(); // simulate pull-to-refresh
-
+    refreshInstance.props?.onRefresh?.();
     expect(mockRefreshData).toHaveBeenCalledTimes(1);
   });
 
@@ -218,8 +210,8 @@ describe("Table Component", () => {
     );
 
     const nameHeader = getByTestId("header-Name");
-    fireEvent.press(nameHeader); // trigger ascending
-    fireEvent.press(nameHeader); // trigger descending
+    fireEvent.press(nameHeader);
+    fireEvent.press(nameHeader);
 
     expect(getByTestId("coins-flatlist")).toBeTruthy();
   });

@@ -30,11 +30,11 @@ export const useThemeStore = create<ThemeStore>()(
   )
 );
 
-// Optional: Export a hook with selectors for better performance
 export const useThemePreference = () =>
   useThemeStore((state) => state.themePreference);
 
 export const useSetThemePreference = () =>
   useThemeStore((state) => state.setThemePreference);
 
-export const useHasHydrated = () => useThemeStore((state) => state._hasHydrated);
+export const useHasHydrated = () =>
+  useThemeStore((state) => state._hasHydrated);

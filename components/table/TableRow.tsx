@@ -99,7 +99,7 @@ export function TableRow({ item }: TableRowProps) {
       </View>
 
       {/* 24h % */}
-      <View className="w-12 justify-center items-center p-1">
+      <View className="w-14 justify-center items-center p-1">
         <Text
           className={`
           text-xs font-medium

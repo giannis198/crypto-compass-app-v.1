@@ -9,7 +9,7 @@ import { CoinInfo } from "./CoinInfo";
 import { CoinRank } from "./CoinRank";
 
 interface CoinListItemProps {
-  coin: Coin; // Use the shared Coin type
+  coin: Coin;
 }
 export function CoinListItem({ coin }: CoinListItemProps) {
   const { isDark } = useAppTheme();

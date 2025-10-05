@@ -39,7 +39,7 @@ export function TableHeader<T extends string>({
       )}
       <Text
         className={`
-        font-bold text-xs
+        font-bold 
         ${isDark ? "text-indigo-100" : "text-indigo-900"}
         ${isActive ? "font-extrabold" : ""}
       `}
@@ -48,9 +48,9 @@ export function TableHeader<T extends string>({
       </Text>
       {isActive &&
         (sortDirection === "asc" ? (
-          <ArrowUp size={10} color={iconColor} />
+          <ArrowUp size={20} color={iconColor} />
         ) : (
-          <ArrowDown size={10} color={iconColor} />
+          <ArrowDown size={20} color={iconColor} />
         ))}
     </TouchableOpacity>
   );

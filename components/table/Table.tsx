@@ -137,7 +137,7 @@ export function Table({
         sortField={sorting?.field || null}
         sortDirection={sorting?.direction || null}
         onSort={handleSort}
-        width="w-20"
+        width="w-18"
       />
 
       <TableHeader<SortField>
@@ -146,7 +146,7 @@ export function Table({
         sortField={sorting?.field || null}
         sortDirection={sorting?.direction || null}
         onSort={handleSort}
-        width="w-12"
+        width="w-16"
       />
     </View>
   );
