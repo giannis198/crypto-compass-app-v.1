@@ -24,6 +24,7 @@ export function TableHeader<T extends string>({
 }: TableHeaderProps<T>) {
   const { isDark } = useAppTheme();
   const isActive = sortField === field;
+  const iconColor = isDark ? "#818CF8" : "#4F46E5";
 
   return (
     <TouchableOpacity
@@ -32,8 +33,8 @@ export function TableHeader<T extends string>({
     >
       {showSortIcons && (
         <View className="mr-1">
-          <ArrowUp size={7} color={isDark ? "#818CF8" : "#4F46E5"} />
-          <ArrowDown size={7} color={isDark ? "#818CF8" : "#4F46E5"} />
+          <ArrowUp size={7} color={iconColor} />
+          <ArrowDown size={7} color={iconColor} />
         </View>
       )}
       <Text
@@ -47,9 +48,9 @@ export function TableHeader<T extends string>({
       </Text>
       {isActive &&
         (sortDirection === "asc" ? (
-          <ArrowUp size={10} color={isDark ? "#818CF8" : "#4F46E5"} />
+          <ArrowUp size={10} color={iconColor} />
         ) : (
-          <ArrowDown size={10} color={isDark ? "#818CF8" : "#4F46E5"} />
+          <ArrowDown size={10} color={iconColor} />
         ))}
     </TouchableOpacity>
   );

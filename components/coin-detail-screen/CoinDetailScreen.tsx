@@ -1,20 +1,17 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Animated, View } from "react-native";
+import { Animated, View, Text } from "react-native";
 
 import Loading from "@/components/Loading";
-import { Text } from "@/components/ui/text"; // Add this import
 import { useAppTheme } from "@/hooks/use-app-theme";
 import { Coin, CoinDetailParams } from "@/types/crypto";
-import {
-  AboutCoinCard,
-  AllTimeHighCard,
-  CoinHeaderCard,
-  MarketStatsCard,
-  PerformanceCard,
-  PriceCard,
-  SupplyInfoCard,
-} from "../../components/coin-detail-screen";
+import { CoinHeaderCard } from "./CoinHeaderCard";
+import { PriceCard } from "./PriceCard";
+import { MarketStatsCard } from "./MarketStatsCard";
+import { SupplyInfoCard } from "./SupplyInfoCard";
+import { AllTimeHighCard } from "./AllTimeHighCard";
+import { PerformanceCard } from "./PerformanceCard";
+import { AboutCoinCard } from "./AboutCoinCard";
 
 export default function CoinDetailScreen() {
   const { isDark } = useAppTheme();

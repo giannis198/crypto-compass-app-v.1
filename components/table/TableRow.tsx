@@ -1,10 +1,10 @@
 // components/TableRow.tsx
 import { useAppTheme } from "@/hooks/use-app-theme";
+import { getNameTextSize } from "@/lib/utils";
 import { Coin } from "@/types/crypto";
 import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
-import { CoinImage } from "./CoinImage";
-import { getNameTextSize } from "@/lib/utils";
+import { CoinImage } from "../coin/CoinImage";
 
 interface TableRowProps {
   item: Coin;

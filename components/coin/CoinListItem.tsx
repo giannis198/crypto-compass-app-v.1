@@ -1,12 +1,12 @@
 // components/coin/CoinListItem.tsx
-import { View } from "react-native";
+import { useAppTheme } from "@/hooks/use-app-theme";
+import { Coin } from "@/types/crypto";
 import { Link } from "expo-router";
-import { CoinRank } from "./CoinRank";
+import { View } from "react-native";
+import { PriceInfo } from "./PriceInfo";
 import { CoinImage } from "./CoinImage";
 import { CoinInfo } from "./CoinInfo";
-import { PriceInfo } from "./PriceInfo";
-import { Coin } from "@/types/crypto";
-import { useAppTheme } from "@/hooks/use-app-theme";
+import { CoinRank } from "./CoinRank";
 
 interface CoinListItemProps {
   coin: Coin; // Use the shared Coin type

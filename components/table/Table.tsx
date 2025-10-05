@@ -3,9 +3,9 @@ import { useAppTheme } from "@/hooks/use-app-theme";
 import { Coin } from "@/types/crypto";
 import { useCallback, useMemo, useState } from "react";
 import { FlatList, RefreshControl, View } from "react-native";
+import { EmptyState } from "../EmptyState";
 import { TableHeader } from "./TableHeader";
 import { TableRow } from "./TableRow";
-import { EmptyState } from "./EmptyState";
 
 interface TableProps {
   data: Coin[];
@@ -96,7 +96,6 @@ export function Table({
     });
   }, []);
 
-  // In your Table.tsx, update the renderHeader function:
   const renderHeader = () => (
     <View
       className={`
@@ -160,6 +159,7 @@ export function Table({
       onRefresh={refreshData}
       tintColor={isDark ? "#818CF8" : "#4F46E5"}
       colors={[isDark ? "#818CF8" : "#4F46E5"]}
+      testID="refresh-control"
     />
   );
 
@@ -175,6 +175,7 @@ export function Table({
       refreshControl={refreshControl}
       extraData={[sorting, search, refreshing]}
       className="flex-1"
+      testID="coins-flatlist"
     />
   );
 }

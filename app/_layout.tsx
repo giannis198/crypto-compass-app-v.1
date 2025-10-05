@@ -13,7 +13,6 @@ import { BackgroundProvider } from "@/provider/BackgroundProvider";
 import { ThemeLoading } from "@/components/ThemeLoading";
 import { useHasHydrated } from "@/store/themeStore";
 
-// Custom indigo themes
 const IndigoDarkTheme = {
   ...DarkTheme,
   colors: {
@@ -44,7 +43,6 @@ export default function RootLayout() {
   const { isDark } = useAppTheme();
   const hasHydrated = useHasHydrated();
 
-  // Determine which theme to use
   const currentTheme = isDark ? IndigoDarkTheme : IndigoLightTheme;
 
   if (!hasHydrated) {

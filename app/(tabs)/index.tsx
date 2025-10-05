@@ -1,9 +1,9 @@
 import { useCryptoStore } from "@/store/cryptoStore";
 import { useEffect, useState } from "react";
-import {  View, TextInput } from "react-native";
+import { TextInput, View } from "react-native";
 
-import { Table } from "@/components/Table";
 import Loading from "@/components/Loading";
+import { Table } from "@/components/table/Table";
 import { TabsHeader } from "@/components/TabsHeader";
 import { Text } from "@/components/ui/text";
 import { useAppTheme } from "@/hooks/use-app-theme";
@@ -11,7 +11,6 @@ import { useAppTheme } from "@/hooks/use-app-theme";
 export default function HomeScreen() {
   const [search, setSearch] = useState("");
   const { isDark } = useAppTheme();
-
 
   const {
     coins,

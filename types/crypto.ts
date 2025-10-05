@@ -31,3 +31,13 @@ export interface Coin {
     };
   };
 }
+
+export type CoinDetailParams = {
+  id: string;
+};
+
+export interface CardProps {
+  coin: any;
+  isDark: boolean;
+  delay: number;
+}
