@@ -1,12 +1,13 @@
 import { useCryptoStore } from "@/store/cryptoStore";
 import { useEffect, useState } from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, TouchableOpacity, View } from "react-native";
 
 import Loading from "@/components/Loading";
 import { Table } from "@/components/table/Table";
 import { TabsHeader } from "@/components/TabsHeader";
 import { Text } from "@/components/ui/text";
 import { useAppTheme } from "@/hooks/use-app-theme";
+import { XCircle, XCircleIcon } from "lucide-react-native";
 
 export default function HomeScreen() {
   const [search, setSearch] = useState("");
@@ -76,7 +77,7 @@ export default function HomeScreen() {
       <TabsHeader title="Cryptocurrencies" subtitle="Top coins by market cap" />
 
       {/* Search Input */}
-      <View className="p-4">
+      <View className="p-4 relative">
         <TextInput
           placeholder="Search..."
           placeholderTextColor={isDark ? "#9CA3AF" : "#6B7280"}
@@ -84,10 +85,19 @@ export default function HomeScreen() {
           onChangeText={setSearch}
           className={
             isDark
-              ? "bg-gray-800 text-indigo-50 rounded-lg p-2"
-              : "bg-gray-200 text-black rounded-lg p-2"
+              ? "bg-gray-800 text-indigo-50 rounded-lg p-2 pr-10"
+              : "bg-gray-200 text-black rounded-lg p-2 pr-10"
           }
         />
+        {search.length > 0 && (
+          <TouchableOpacity
+            onPress={() => setSearch("")}
+            className="absolute right-6 top-6"
+            testID="clear-search-button"
+          >
+            <XCircle color={isDark ? "#9CA3AF" : "#6B7280"} size={20} />
+          </TouchableOpacity>
+        )}
       </View>
 
       {/* Coin Table */}

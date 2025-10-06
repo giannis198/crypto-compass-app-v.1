@@ -12,7 +12,7 @@ interface CryptoState {
   fetchCoins: () => Promise<void>;
   fetchMoreCoins: () => Promise<void>;
   loadCoinsFromStorage: () => Promise<void>;
-  refreshData: () => Promise<void>; 
+  refreshData: () => Promise<void>;
 }
 
 export const useCryptoStore = create<CryptoState>((set, get) => ({
@@ -35,7 +35,6 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
         set({ hasMore: false });
       }
 
-  
       const currentCoins = get().coins;
       const uniqueNewCoins = newCoins.filter(
         (newCoin: Coin) => !currentCoins.some((coin) => coin.id === newCoin.id)
@@ -81,10 +80,8 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
     }
   },
   refreshData: async () => {
-  
     set({ refreshing: true, page: 1, hasMore: true });
     try {
-      
       const response = await fetch(
         "https://api.coinpaprika.com/v1/tickers?page=1"
       );
@@ -94,7 +91,7 @@ export const useCryptoStore = create<CryptoState>((set, get) => ({
       set({
         coins: newCoins,
         loading: false,
-        page: 2, 
+        page: 2,
         refreshing: false,
       });
     } catch (e) {
