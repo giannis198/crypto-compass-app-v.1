@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/images/logo-2048.png" alt="Crypto Compass Logo" width="200">
+</div>
+
 # Crypto-Compass Mobile App
 
 A sleek and intuitive React Native application for tracking cryptocurrency prices, market trends, and managing your digital asset portfolio. This project was developed as part of the hiring process to showcase modern mobile development practices.
