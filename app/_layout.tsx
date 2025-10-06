@@ -71,10 +71,17 @@ export default function RootLayout() {
                 fontWeight: "600",
               },
               headerShadowVisible: false,
+              animation: "slide_from_right",
             }}
           >
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="coin" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false, animation: "fade" }}
+            />
+            <Stack.Screen
+              name="coin"
+              options={{ headerShown: false, presentation: "modal" }}
+            />
           </Stack>
         </ThemeProvider>
       </BackgroundProvider>
