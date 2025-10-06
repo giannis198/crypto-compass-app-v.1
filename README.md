@@ -39,6 +39,7 @@ A sleek and intuitive React Native application for tracking cryptocurrency price
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS (via NativeWind)
 - **State Management**: Zustand
+- **Data**: [Coin Paprika API](https://coinpaprika.com/)
 - **Navigation**: Expo Router (file-based)
 - **Testing**: Jest & React Native Testing Library
 
